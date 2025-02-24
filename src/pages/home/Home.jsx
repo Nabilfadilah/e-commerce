@@ -5,6 +5,7 @@ import Slider from "../../components/slider/Slider";
 import Categories from "../../components/categories/Categories";
 import NewArrivals from "../../components/products/NewArrivals";
 import BestSellers from "../../components/products/BestSellers";
+import NewsLetter from "../../components/newsletter/NewsLetter";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <Categories />
       <NewArrivals />
       <BestSellers />
+      <NewsLetter />
     </div>
   );
 }
