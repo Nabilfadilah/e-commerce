@@ -3,6 +3,8 @@ import Announcement from "../../components/announcement/Announcement";
 import Navbar from "../../components/navbar/Navbar";
 import Slider from "../../components/slider/Slider";
 import Categories from "../../components/categories/Categories";
+import NewArrivals from "../../components/products/NewArrivals";
+import BestSellers from "../../components/products/BestSellers";
 
 function Home() {
   return (
@@ -11,6 +13,8 @@ function Home() {
       <Navbar />
       <Slider />
       <Categories />
+      <NewArrivals />
+      <BestSellers />
     </div>
   );
 }
