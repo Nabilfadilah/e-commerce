@@ -26,7 +26,9 @@ const Navbar = () => {
           <Link to="/register">
             <div className="navbar-menuItem">Register</div>
           </Link>
-          <div className="navbar-menuItem">Login</div>
+          <Link to="/login">
+            <div className="navbar-menuItem">Login</div>
+          </Link>
           <div className="navbar-menuItem">
             <MdOutlineShoppingCart className="icon" />
             <span className="cart-badge"></span>
