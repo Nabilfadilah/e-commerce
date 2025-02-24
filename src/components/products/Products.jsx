@@ -1,9 +1,17 @@
 import React from "react";
 import "./Products.css";
-import {CiShoppingCart} from "react-icons/ci";
+import {CiSearch, CiShoppingCart} from "react-icons/ci";
+import {useNavigate} from "react-router-dom";
 
 // menggunkan props
 const Products = ({items, heading}) => {
+  // navigasi page
+  const navigate = useNavigate();
+
+  const handleViewDetails = (id) => {
+    navigate(`/products/${id}`);
+  };
+
   return (
     <div>
       <h1 className="heading">{heading}</h1>
@@ -21,8 +29,11 @@ const Products = ({items, heading}) => {
                 <CiShoppingCart /> Add To Cart
               </button>
 
-              <button className="icon">
-                <CiShoppingCart /> View Details
+              <button
+                className="icon"
+                onClick={() => handleViewDetails(item.id)}
+              >
+                <CiSearch /> View Details
               </button>
             </div>
           </div>
