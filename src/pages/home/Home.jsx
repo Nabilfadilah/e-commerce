@@ -8,6 +8,7 @@ function Home() {
     <div>
       <Announcement />
       <Navbar />
+      <Slider />
     </div>
   );
 }
