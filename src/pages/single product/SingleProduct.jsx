@@ -4,8 +4,16 @@ import {allProducts} from "../../data";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import "./SingleProduct.css";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../redux/cartSlice";
 
 const SingleProduct = () => {
+  // reducer data store
+  const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
   // parameter id untuk get data berdasarkan id
   const {id} = useParams();
 
@@ -83,7 +91,9 @@ const SingleProduct = () => {
           </div>
 
           <div className="addToCart">
-            <button>Add to cart</button>
+            <button onClick={() => handleAddToCart(product)}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
