@@ -21,11 +21,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="navbar-center">
+        <Link to="/">
           <h1 className="navbar-logo">
             NgodingBil <span>.</span>
           </h1>
-        </div>
+        </Link>
 
         <div className="navbar-right">
           <Link to="/register">
@@ -34,10 +34,14 @@ const Navbar = () => {
           <Link to="/login">
             <div className="navbar-menuItem">Login</div>
           </Link>
-          <div className="navbar-menuItem">
-            <MdOutlineShoppingCart className="icon" />
-            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-          </div>
+          <Link to="/cart">
+            <div className="navbar-menuItem">
+              <MdOutlineShoppingCart className="icon" />
+              {totalItems > 0 && (
+                <span className="cart-badge">{totalItems}</span>
+              )}
+            </div>
+          </Link>
         </div>
       </div>
     </nav>
