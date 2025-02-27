@@ -32,7 +32,7 @@ const cartSlice = createSlice({
             }
         },
 
-        descreaseQuantity: (state, action) => {
+        decreaseQuantity: (state, action) => {
             const itemIndex = state.cartItems.findIndex(
                 (item) => item.id === action.payload.id
             )
@@ -47,5 +47,5 @@ const cartSlice = createSlice({
     }
 })
 
-export const {addToCart, removeFormCart, increaseQuantity, descreaseQuantity} = cartSlice.actions;
+export const {addToCart, removeFormCart, increaseQuantity, decreaseQuantity} = cartSlice.actions;
 export default cartSlice.reducer
