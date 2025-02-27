@@ -20,32 +20,40 @@ const Products = ({items, heading}) => {
     navigate(`/products/${id}`);
   };
 
+  // Format harga ke Rupiah
+  const formatRupiah = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  });
+
   return (
     <div>
       <h1 className="heading">{heading}</h1>
       <div className="products-container">
-        {items.map((item) => (
-          <div key={item.id} className="product-container">
-            <img src={item.img} alt="" className="product-image" />
-            <div className="product-desc">
-              <h3>{item.title}</h3>
-              <span>${item.price}</span>
-            </div>
+        {items.map((item) => {
+          return (
+            <div key={item.id} className="product-container">
+              <img src={item.img} alt="" className="product-image" />
+              <div className="product-desc">
+                <h3>{item.title}</h3>
+                <span>{formatRupiah.format(item.price)}</span>
+              </div>
 
-            <div className="product-info">
-              <button className="icon" onClick={() => handleAddToCart(item)}>
-                <CiShoppingCart /> Add To Cart
-              </button>
+              <div className="product-info">
+                <button className="icon" onClick={() => handleAddToCart(item)}>
+                  <CiShoppingCart /> Add To Cart
+                </button>
 
-              <button
-                className="icon"
-                onClick={() => handleViewDetails(item.id)}
-              >
-                <CiSearch /> View Details
-              </button>
+                <button
+                  className="icon"
+                  onClick={() => handleViewDetails(item.id)}
+                >
+                  <CiSearch /> View Details
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
