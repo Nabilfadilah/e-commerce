@@ -29,12 +29,18 @@ const SingleProduct = () => {
   };
 
   // ukuran produk
-  const sizes = ["s", "m", "l", "xl", "xxl"];
+  const sizes = ["38", "39", "40", "41", "42", "43", "44"];
   // select size
   const [selectedSize, setSelectedSize] = useState(null);
   const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
+
+  // Format harga ke Rupiah
+  const formatRupiah = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  });
 
   return (
     <div className="singleProduct-container">
@@ -45,7 +51,9 @@ const SingleProduct = () => {
         </div>
         <div className="singleProduct-infoSection">
           <h2 className="singleProduct-title">{product.title}</h2>
-          <p className="singleProduct-number">{product.price}</p>
+          <p className="singleProduct-number">
+            {formatRupiah.format(product.price)}
+          </p>
           <h4 className="description-title">Description</h4>
           <p className="singleProduct-description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
@@ -54,7 +62,7 @@ const SingleProduct = () => {
             sunt.
           </p>
           <div className="singleProduct-options">
-            <div className="color-section">
+            {/* <div className="color-section">
               <h4>Colors</h4>
               <div className="colors">
                 {colors.map((color) => (
@@ -70,7 +78,7 @@ const SingleProduct = () => {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="sizes-section">
               <h4>Size</h4>
