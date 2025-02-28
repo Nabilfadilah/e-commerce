@@ -5,9 +5,9 @@ import {IoMdSend} from "react-icons/io";
 const NewsLetter = () => {
   return (
     <div className="newsletter-container">
-      <h1 className="newsletter-title">NewsLetter</h1>
+      <h5 className="newsletter-title">Surat Berita</h5>
       <div className="newsletter-desc">
-        Apa yang segar dan baru: pembaruan yang tidak ingin Anda lewatkan
+        Apa pembaruan yang tidak ingin Anda lewatkan
       </div>
 
       <div className="input-container">
