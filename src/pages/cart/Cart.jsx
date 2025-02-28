@@ -22,6 +22,12 @@ const Cart = () => {
     0
   );
 
+  // Format harga ke Rupiah
+  const formatRupiah = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  });
+
   return (
     <div>
       <Navbar />
@@ -55,7 +61,9 @@ const Cart = () => {
                       />
                       <p>{item.title}</p>
                     </div>
-                    <div className="cart-price">${item.price}</div>
+                    <div className="cart-price">
+                      {formatRupiah.format(item.price)}
+                    </div>
                     <div className="cart-quantity">
                       <button onClick={() => dispatch(decreaseQuantity(item))}>
                         {" "}
@@ -68,7 +76,7 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="cart-total">
-                      ${parseFloat(item.price * item.quantity).toFixed(2)}
+                      {formatRupiah.format(item.price * item.quantity)}
                     </div>
                     <button
                       className="remove-btn"
@@ -85,7 +93,8 @@ const Cart = () => {
                 <div className="summary-details">
                   <div className="summary-item">
                     <span>Price:</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>{formatRupiah.format(totalPrice)}</span>
+                    {/* <span>${totalPrice.toFixed(2)}</span> */}
                   </div>
                   <div className="summary-item">
                     <span>Delivery:</span>
@@ -93,10 +102,11 @@ const Cart = () => {
                   </div>
                   <div className="summary-item">
                     <span>Total:</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>{formatRupiah.format(totalPrice)}</span>
+                    {/* <span>${totalPrice.toFixed(2)}</span> */}
                   </div>
                 </div>
-                <button className="checkout-btn">Proceed to Checkout</button>
+                <button className="checkout-btn">Lanjutkan Pembayaran</button>
               </div>
             </div>
           </>
